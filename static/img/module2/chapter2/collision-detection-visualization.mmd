@@ -1,0 +1,9 @@
+graph TD
+    RobotLink[Robot Link] --> |Collision Geometry| CollisionShapeA[Collision Shape A]
+    EnvironmentObject[Environment Object] --> |Collision Geometry| CollisionShapeB[Collision Shape B]
+    CollisionShapeA -- Detects Contact --> PhysicsEngine[Physics Engine]
+    CollisionShapeB -- Detects Contact --> PhysicsEngine
+    PhysicsEngine -- Calculates --> |Contact Points/Normals| CollisionResponse[Collision Response (Forces/Torques)]
+    CollisionResponse --> RobotLink
+    CollisionResponse --> EnvironmentObject
+    PhysicsEngine -- Provides Data --> ContactSensor[Contact Sensor (Optional)]

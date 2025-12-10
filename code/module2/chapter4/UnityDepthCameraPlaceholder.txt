@@ -1,0 +1,3 @@
+This file serves as a placeholder for Unity Perception Package configuration.
+A full Unity project for depth camera simulation cannot be directly generated here.
+Users should refer to the Unity Perception Package documentation for detailed setup.

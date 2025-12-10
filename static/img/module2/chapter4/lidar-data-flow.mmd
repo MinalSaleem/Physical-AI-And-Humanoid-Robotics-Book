@@ -1,0 +1,5 @@
+graph TD
+    LiDARSensor[LiDAR Sensor (Simulated)] --> |Raw Laser Data| GazeboPlugin[Gazebo LiDAR Plugin]
+    GazeboPlugin --> |/scan topic (LaserScan msg)| ROS2[ROS 2 Graph]
+    ROS2 --> AINode[AI Perception Node]
+    AINode --> |Processed Point Cloud| VisualizationTool[Visualization (RViz)]

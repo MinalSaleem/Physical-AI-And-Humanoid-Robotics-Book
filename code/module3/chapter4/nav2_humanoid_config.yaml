@@ -1,0 +1,69 @@
+# Placeholder for Nav2 Configuration for Humanoid
+
+This file provides an example of how a `controller_server` might be configured for a humanoid within Nav2.
+Actual configuration will be extensive and require fine-tuning for specific humanoid kinematics and dynamics.
+
+```yaml
+controller_server:
+  ros__parameters:
+    controller_plugin: "humanoid_nav_controller/HumanoidController" # Custom controller for humanoid gaits
+    min_x_velocity_threshold: 0.001
+    min_y_velocity_threshold: 0.001
+    min_theta_velocity_threshold: 0.001
+
+    # Controller specific parameters for a humanoid
+    humanoid_nav_controller:
+      type: "humanoid_nav_controller::HumanoidController"
+      base_frame_id: "base_link"
+      robot_radius: 0.3 # Safety radius
+      foot_separation: 0.2
+      # ... other humanoid-specific parameters like step_height, step_length, balance_gains
+
+planner_server:
+  ros__parameters:
+    planner_plugins: ["GridBased", "SmacHybridPlanner"]
+    GridBased:
+      # Common parameters for grid-based planners
+    SmacHybridPlanner:
+      # Parameters for local planner (might need to be customized for humanoid)
+      # motion_model_for_humanoid: "BipedalMotionModel" # A custom motion model
+      # ...
+
+recovery_server:
+  ros__parameters:
+    recoveries: ["spin", "backup", "wait"]
+    spin:
+      # Parameters for spin recovery
+    backup:
+      # Parameters for backup recovery
+    wait:
+      # Parameters for wait recovery
+
+global_costmap:
+  ros__parameters:
+    plugins: ["static_layer", "obstacle_layer", "inflation_layer", "foot_placement_layer"]
+    static_layer:
+      map_subscribe_topic: "/map"
+    obstacle_layer:
+      topic: "/scan"
+      observation_sources: "scan"
+    inflation_layer:
+      inflation_radius: 0.5
+    foot_placement_layer:
+      plugin: "nav2_costmap_2d::FootPlacementLayer" # Custom plugin to mark valid foot placements
+      # ... humanoid specific foot placement parameters
+
+local_costmap:
+  ros__parameters:
+    plugins: ["obstacle_layer", "voxel_layer", "inflation_layer"]
+    obstacle_layer:
+      topic: "/scan"
+      observation_sources: "scan"
+    voxel_layer:
+      enabled: True
+    inflation_layer:
+      inflation_radius: 0.5
+```
+**Note**: The `humanoid_nav_controller` and `FootPlacementLayer` would typically be custom ROS 2 packages/plugins developed for humanoid-specific navigation, as standard Nav2 is primarily designed for differential-drive robots.
+
+This YAML file provides a high-level overview. A real-world humanoid Nav2 configuration would involve many more detailed parameters and custom plugins.

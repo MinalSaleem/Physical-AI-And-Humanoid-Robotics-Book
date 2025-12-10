@@ -1,0 +1,26 @@
+<sensor name="depth_camera_example" type="depth_camera">
+  <pose>0 0 0 0 0 0</pose>
+  <visualize>true</visualize>
+  <update_rate>10</update_rate>
+  <camera>
+    <horizontal_fov>1.047</horizontal_fov>
+    <image>
+      <width>640</width>
+      <height>480</height>
+      <format>R8G8B8</format>
+    </image>
+    <clip>
+      <near>0.1</near>
+      <far>10</far>
+    </clip>
+  </camera>
+  <plugin name="camera_controller" filename="libgazebo_ros_depth_camera.so">
+    <ros>
+      <namespace>/robot</namespace>
+      <argument>depth/image_raw:=depth_image</argument>
+      <argument>depth/points:=depth_points</argument>
+      <argument>image_raw:=rgb_image</argument>
+    </ros>
+    <frame_name>camera_link</frame_name>
+  </plugin>
+</sensor>

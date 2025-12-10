@@ -1,0 +1,9 @@
+graph TD
+    User --> |Visualizes/Interacts| GzClient[Gazebo Client (GUI)]
+    GzClient <--> |Simulation Commands/Telemetry| GzServer[Gazebo Server (Physics Engine)]
+    GzServer --> |Uses Physics Libraries| PhysicsEngine[Physics Engine (ODE, Bullet, etc.)]
+    GzServer --> |Loads World Description| WorldFiles[World Files (.world)]
+    WorldFiles --> |References Models| ModelFiles[Model Files (SDF/URDF)]
+    GzServer --> |Generates Data| SensorData[Simulated Sensor Data]
+    SensorData --> |Communicates (ROS 2)| RobotSoftware[Robot Control Software (e.g., ROS 2 Nodes)]
+    RobotSoftware --> |Sends Commands| GzServer

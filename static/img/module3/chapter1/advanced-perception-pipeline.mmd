@@ -1,0 +1,11 @@
+graph TD
+    A[Raw Sensor Data (LiDAR, Camera, IMU)] --> B{Sensor Fusion (e.g., Kalman Filter)}
+    B --> C{Feature Extraction (e.g., Deep Learning)}
+    C --> D{Object Detection & Tracking}
+    C --> E{Semantic Segmentation}
+    D --> F{High-Level Understanding (e.g., Scene Graph)}
+    E --> F
+    F --> G[Decision Making / Planning (AI Agent)]
+    G --> H[Robot Control Commands]
+    H --> I[Robot Actuators]
+    G -- Feedback/Goals --> A

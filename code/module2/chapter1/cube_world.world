@@ -1,0 +1,52 @@
+<?xml version="1.0"?>
+<sdf version="1.7">
+  <world name="cube_world">
+    <gravity>0 0 -9.8</gravity>
+    <physics name="default_physics" default="true" type="ode">
+      <max_step_size>0.001</max_step_size>
+      <real_time_factor>1.0</real_time_factor>
+      <real_time_update_rate>1000</real_time_update_rate>
+    </physics>
+
+    <include>
+      <uri>model://sun</uri>
+    </include>
+
+    <include>
+      <uri>model://ground_plane</uri>
+    </include>
+
+    <!-- Custom cube model -->
+    <model name="my_cube">
+      <pose>0 0 0.5 0 0 0</pose> <!-- x y z roll pitch yaw -->
+      <link name="cube_link">
+        <visual name="visual">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+          <material>
+            <ambient>0.0 0.0 1.0 1.0</ambient> <!-- Blue color -->
+            <diffuse>0.0 0.0 1.0 1.0</diffuse>
+          </material>
+        </visual>
+        <collision name="collision">
+          <geometry>
+            <box>
+              <size>0.2 0.2 0.2</size>
+            </box>
+          </geometry>
+        </collision>
+        <inertial>
+          <mass>1.0</mass>
+          <inertia>
+            <ixx>0.00666</ixx> <iyy>0.00666</iyy> <izz>0.00666</izz>
+            <ixy>0.0</ixy> <ixz>0.0</ixz> <iyz>0.0</iyz>
+          </inertia>
+        </inertial>
+      </link>
+    </model>
+
+  </world>
+</sdf>

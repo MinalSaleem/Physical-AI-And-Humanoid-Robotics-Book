@@ -1,0 +1,10 @@
+graph TD
+    A[USD Scene in Isaac Sim] --> B{Sensor Configuration}
+    B --> C{Domain Randomization}
+    C --> D[Simulation Loop]
+    D --> E[Rendered Images (RGB)]
+    D --> F[Depth Maps]
+    D --> G[Semantic Segmentation]
+    D --> H[Object Poses/Bounding Boxes]
+    {E,F,G,H} --> I[Synthetic Dataset]
+    I --> J[AI Model Training]

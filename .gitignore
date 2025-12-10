@@ -1,0 +1,33 @@
+# Node.js/TypeScript
+node_modules/
+dist/
+build/
+*.log
+.env*
+.d.ts
+.js
+.jsx
+.map
+
+# Python
+__pycache__/
+*.pyc
+.venv/
+venv/
+dist/
+*.egg-info/
+.pytest_cache/
+.mypy_cache/
+htmlcov/
+.env
+
+# Universal
+.DS_Store
+Thumbs.db
+*.tmp
+*.swp
+.vscode/
+.idea/
+*.log*
+
+code/module2/chapter4/gazebo_imu_sensor_example.xml.

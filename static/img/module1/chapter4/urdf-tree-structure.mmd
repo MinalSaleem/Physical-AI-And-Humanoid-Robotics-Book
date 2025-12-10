@@ -1,0 +1,8 @@
+graph TD
+    Robot --> Link1[Link (base_link)]
+    Link1 --> Joint1[Joint (base_to_head_joint)]
+    Joint1 --> Link2[Link (head_link)]
+    Link1 --> Joint2[Joint (base_to_right_arm_joint)]
+    Joint2 --> Link3[Link (right_arm_link)]
+    Link1 --> Joint3[Joint (base_to_left_arm_joint)]
+    Joint3 --> Link4[Link (left_arm_link)]

@@ -1,0 +1,11 @@
+graph TD
+    SensorData[Raw Sensor Data (Stereo Camera, IMU)] --> IsaacROSDrivers[Isaac ROS Sensor Drivers]
+    IsaacROSDrivers --> ImagePreProcessing[Image Pre-processing (GPU-accelerated)]
+    ImagePreProcessing --> VSLAMAlgorithm[VSLAM Algorithm (e.g., cuVSLAM)]
+    VSLAMAlgorithm --> PoseEstimation[Robot Pose Estimation (Localization)]
+    VSLAMAlgorithm --> Mapping[Environment Mapping]
+    PoseEstimation --> ROS2TopicPose[/tf (Robot Pose)]
+    Mapping --> ROS2TopicMap[/map (Occupancy Grid)]
+    ROS2TopicPose --> Nav2Stack[Nav2 Navigation Stack]
+    ROS2TopicMap --> Nav2Stack
+    Nav2Stack --> RobotControl[Robot Control Commands]

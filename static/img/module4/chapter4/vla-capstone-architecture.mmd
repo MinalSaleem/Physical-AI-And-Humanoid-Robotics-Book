@@ -1,0 +1,20 @@
+graph TD
+    UserCommand[Voice Command (User)] --> SpeechToText[OpenAI Whisper (STT)]
+    SpeechToText --> TextCommand[Text Command]
+    TextCommand --> IntentRecognizer[Command Parser / Intent Recognizer]
+    IntentRecognizer --> LLMCognitivePlanner[LLM Cognitive Planner]
+    LLMCognitivePlanner --> |Abstract Plan| ActionMapper[ROS 2 Action Mapper]
+    
+    subgraph Robot Control & Execution
+        ActionMapper --> Nav2[Nav2 (Navigation)]
+        ActionMapper --> Perception[Perception (Object Detection)]
+        ActionMapper --> Manipulation[Manipulation (Grasping)]
+        Nav2 --> RobotSim[Simulated Humanoid Robot]
+        Perception --> RobotSim
+        Manipulation --> RobotSim
+    end
+    
+    RobotSim --Sensor Data--> Perception
+    RobotSim --Pose Data--> Nav2
+    ActionMapper --Execution Feedback--> LLMCognitivePlanner
+    LLMCognitivePlanner --User Status/Clarification--> UserCommand

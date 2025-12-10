@@ -1,0 +1,25 @@
+graph TD
+    Robot[Humanoid Robot] --> Sensors[Sensors (LiDAR, Camera, IMU)]
+    Sensors --> VSLAM[VSLAM (Isaac ROS)]
+    VSLAM --> Localization[Localization (AMCL/VSLAM Pose)]
+    VSLAM --> Mapping[Mapping (Occupancy Grid)]
+
+    subgraph Nav2 Stack
+        Localization --> GlobalPlanner[Global Planner (e.g., A*)]
+        Mapping --> GlobalPlanner
+        GlobalPlanner --> PathSmoother[Path Smoother]
+        PathSmoother --> LocalPlanner[Local Planner (e.g., TEB, DWA)]
+        LocalPlanner --> Controller[Custom Humanoid Controller]
+        Controller --> Robot
+        LocalPlanner --> BehaviorTree[Behavior Tree]
+        BehaviorTree --> RecoveryBehaviors[Recovery Behaviors]
+    end
+
+    Costmaps[Global/Local Costmaps] --> GlobalPlanner
+    Costmaps --> LocalPlanner
+    Sensors --> Costmaps
+    Localization --> Costmaps
+
+    style Controller fill:#f9f,stroke:#333,stroke-width:2px
+    style Robot fill:#ccf,stroke:#333,stroke-width:2px
+    style BehaviorTree fill:#fcf,stroke:#333,stroke-width:2px

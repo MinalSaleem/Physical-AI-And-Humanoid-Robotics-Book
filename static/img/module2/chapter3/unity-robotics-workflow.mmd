@@ -1,0 +1,9 @@
+graph TD
+    A[Unity Editor] --> B{Build/Play Mode}
+    B --> C[Unity Application (Simulation)]
+    C -- Publishes/Subscribes --> D[ROS TCP Connector]
+    D <--> E[ROS 2 Workspace (ros_tcp_endpoint)]
+    E <--> F[ROS 2 Nodes (Robot Control, AI Agents)]
+    C -- High-Fidelity Rendering --> G[User Interface/Visualization]
+    User[User] --> |Interaction| G
+    G --> C

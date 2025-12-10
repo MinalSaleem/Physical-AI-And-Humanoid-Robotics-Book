@@ -1,0 +1,9 @@
+graph TD
+    User[Human User] --> |Spoken Command| Microphone[Microphone Input]
+    Microphone --> A[Audio Data]
+    A --> B{OpenAI Whisper API}
+    B --> C[Transcribed Text]
+    C --> D{Command Parser / Intent Recognizer}
+    D --> E[Structured Robot Command (e.g., JSON)]
+    E --> F[Robot Control System (ROS 2)]
+    F --> Robot[Robot Action]

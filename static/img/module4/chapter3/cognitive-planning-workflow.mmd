@@ -1,0 +1,10 @@
+graph TD
+    UserRequest[Natural Language Request] --> A[Speech-to-Text (e.g., Whisper)]
+    A --> B{Text Command}
+    B --> LLM[Large Language Model (Cognitive Planner)]
+    LLM --> |Abstract Action Sequence| MappingLayer[Mapping Layer (ROS 2 Translator)]
+    MappingLayer --> ROS2Actions[ROS 2 Action/Service Calls]
+    ROS2Actions --> Robot[Robot Control System]
+    Robot --> |Sensor Feedback/Execution Status| MappingLayer
+    MappingLayer --> LLM
+    LLM --> |Clarification/Status Update| UserRequest

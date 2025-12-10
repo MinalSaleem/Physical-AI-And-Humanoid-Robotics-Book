@@ -1,0 +1,5 @@
+graph TD
+    DepthCamera[Depth Camera (Simulated)] --> |RGB/Depth Image Data| GazeboPlugin[Gazebo Depth Camera Plugin]
+    GazeboPlugin --> |/camera/image_raw, /camera/depth/image_raw (Image msgs)| ROS2[ROS 2 Graph]
+    ROS2 --> AINode[AI Perception Node]
+    AINode --> |Object Detection/3D Reconstruction| VisualizationTool[Visualization (RViz)]

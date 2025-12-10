@@ -1,0 +1,19 @@
+graph TD
+    subgraph ROS 2 Ecosystem
+        A[ROS 2 Core] --> B(DDS - Data Distribution Service)
+        B --> C[rcl (ROS Client Library)]
+        C -- Language Bindings --> D[rclpy (Python)]
+        C -- Language Bindings --> E[rclcpp (C++)]
+    end
+
+    subgraph User Application
+        F[Python Node] --> D
+        G[C++ Node] --> E
+        F -- Communication --> H[ROS 2 Graph (Nodes, Topics, Services)]
+        G -- Communication --> H
+        H -- Visualization/Debugging --> I[Tools (RViz, rqt)]
+    end
+
+    H -- Data/Commands --> J[Robot Hardware Interface]
+    J -- Control --> K[Robot Actuators]
+    L[Robot Sensors] -- Data --> J

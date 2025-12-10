@@ -1,0 +1,84 @@
+openapi: 3.0.0
+info:
+  title: RAG Chatbot API
+  version: 1.0.0
+  description: API for the RAG (Retrieval-Augmented Generation) chatbot integrated with the Physical AI and Humanoid Robotics book.
+
+servers:
+  - url: /api # This will be proxied by Docusaurus or served by the backend directly
+
+paths:
+  /chat:
+    post:
+      summary: Get a response from the RAG chatbot
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              type: object
+              required:
+                - query
+              properties:
+                query:
+                  type: string
+                  description: The user's question or prompt for the chatbot.
+                  example: "What is inverse kinematics?"
+                conversation_history:
+                  type: array
+                  description: Optional conversational memory for multi-turn interactions.
+                  items:
+                    type: object
+                    required:
+                      - role
+                      - content
+                    properties:
+                      role:
+                        type: string
+                        enum: [user, assistant]
+                        description: Role of the speaker (user or assistant).
+                      content:
+                        type: string
+                        description: The message content.
+                  example:
+                    - role: user
+                      content: "What is physical AI?"
+                    - role: assistant
+                      content: "Physical AI refers to AI systems that interact with the physical world through sensors and actuators..."
+      responses:
+        '200':
+          description: Successful response from the chatbot.
+          content:
+            application/json:
+              schema:
+                type: object
+                required:
+                  - answer
+                properties:
+                  answer:
+                    type: string
+                    description: The chatbot's generated answer.
+                    example: "Inverse kinematics is the mathematical process of calculating the joint parameters of a robot arm to achieve a desired end-effector position and orientation."
+                  sources:
+                    type: array
+                    description: Optional list of sources from which information was retrieved.
+                    items:
+                      type: object
+                      required:
+                        - title
+                        - url
+                      properties:
+                        title:
+                          type: string
+                          description: Title of the source document.
+                        url:
+                          type: string
+                          format: uri
+                          description: URL to the source document in the book.
+                    example:
+                      - title: "Chapter 3: Robot Kinematics"
+                        url: "/docs/module1/chapter3/robot-kinematics"
+        '400':
+          description: Invalid request.
+        '500':
+          description: Internal server error.

@@ -1,0 +1,11 @@
+graph TD
+    SubGraph_1[Torso (base_link)] --> SubGraph_2[Neck (revolute joint)]
+    SubGraph_2 --> SubGraph_3[Head (head_link)]
+    SubGraph_1 --> SubGraph_4[Right Shoulder (revolute joint)]
+    SubGraph_4 --> SubGraph_5[Right Arm (right_arm_link)]
+    SubGraph_1 --> SubGraph_6[Left Shoulder (revolute joint)]
+    SubGraph_6 --> SubGraph_7[Left Arm (left_arm_link)]
+    SubGraph_1 --> SubGraph_8[Right Hip (revolute joint)]
+    SubGraph_8 --> SubGraph_9[Right Leg (right_leg_link)]
+    SubGraph_1 --> SubGraph_10[Left Hip (revolute joint)]
+    SubGraph_10 --> SubGraph_11[Left Leg (left_leg_link)]

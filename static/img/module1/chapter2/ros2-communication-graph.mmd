@@ -1,0 +1,22 @@
+graph LR
+    subgraph Nodes
+        A(Node A)
+        B(Node B)
+        C(Node C)
+    end
+
+    subgraph Topics
+        T1(Topic 1)
+        T2(Topic 2)
+    end
+
+    subgraph Services
+        S1(Service 1)
+    end
+
+    A -- publishes --> T1
+    T1 -- subscribes --> B
+    A -- publishes --> T2
+    T2 -- subscribes --> C
+    B -- requests/provides --> S1
+    S1 -- requests/provides --> C

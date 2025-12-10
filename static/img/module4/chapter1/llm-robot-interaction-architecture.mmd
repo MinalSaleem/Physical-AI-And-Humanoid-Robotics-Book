@@ -1,0 +1,9 @@
+graph TD
+    User[Human User] --> |Voice Command/Text Input| A[Speech-to-Text (e.g., Whisper)]
+    A --> B{Natural Language Understanding}
+    B --> C[Large Language Model (LLM)]
+    C --> |High-Level Plan/Abstract Actions| D{Cognitive Planner}
+    D --> |ROS 2 Actions/Goals| E[Robot Control System (ROS 2)]
+    E --> F[Robot Hardware/Simulator]
+    F --> |Sensor Data/State| B
+    E --> |Execution Feedback| C

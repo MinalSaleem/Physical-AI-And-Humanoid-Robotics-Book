@@ -1,0 +1,8 @@
+graph TD
+    PhysicalAsset[Physical Asset/System] --> |Real-world Data| DigitalTwin[Digital Twin (Virtual Model)]
+    DigitalTwin --> |Insights/Control Commands| PhysicalAsset
+    DigitalTwin --Simulates--> Environment[Virtual Environment]
+    DigitalTwin --Optimizes--> Operations[Operations/Performance]
+    User[User/AI Agent] --> |Interacts with| DigitalTwin
+    PhysicalAsset --Monitored by--> Sensors[Sensors]
+    Sensors --> |Data Stream| DigitalTwin
