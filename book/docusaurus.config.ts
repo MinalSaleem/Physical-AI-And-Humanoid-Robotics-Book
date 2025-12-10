@@ -15,14 +15,14 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: 'https://minal-hackathon.github.io',
+  url: 'https://MinalSaleem.github.io',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/Physical-AI-And-Humanoid-Robotics-Book/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: 'minal-hackathon', // Usually your GitHub org/user name.
+  organizationName: 'MinalSaleem', // Usually your GitHub org/user name.
   projectName: 'Physical-AI-And-Humanoid-Robotics-Book', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
@@ -50,7 +50,7 @@ const config: Config = {
           },
           // Updated to point to your actual repository
           editUrl:
-            'https://github.com/minal-hackathon/Physical-AI-And-Humanoid-Robotics-Book/tree/main/book/',
+            'https://github.com/MinalSaleem/Physical-AI-And-Humanoid-Robotics-Book/tree/main/book/',
         },
         blog: {
           showReadingTime: true,
@@ -60,7 +60,7 @@ const config: Config = {
           },
           // Updated to point to your actual repository
           editUrl:
-            'https://github.com/minal-hackathon/Physical-AI-And-Humanoid-Robotics-Book/tree/main/book/',
+            'https://github.com/MinalSaleem/Physical-AI-And-Humanoid-Robotics-Book/tree/main/book/',
           // Useful options to enforce blogging best practices
           onInlineTags: 'warn',
           onInlineAuthors: 'warn',
@@ -99,7 +99,7 @@ const config: Config = {
         },
         {to: '/blog', label: 'Blog', position: 'left'},
         {
-          href: 'https://github.com/minal-hackathon/Physical-AI-And-Humanoid-Robotics-Book',
+          href: 'https://github.com/MinalSaleem/Physical-AI-And-Humanoid-Robotics-Book',
           label: 'GitHub',
           position: 'right',
         },
@@ -152,7 +152,7 @@ const config: Config = {
             },
             {
               label: 'GitHub',
-              href: 'https://github.com/minal-hackathon/Physical-AI-And-Humanoid-Robotics-Book',
+              href: 'https://github.com/MinalSaleem/Physical-AI-And-Humanoid-Robotics-Book',
             },
           ],
         },

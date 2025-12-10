@@ -56,12 +56,13 @@ const sidebars: SidebarsConfig = {
         {
           type: 'category',
           label: 'Module 4: Vision-Language-Action (VLA)',
-          link: {type: 'doc', id: '04-module-four/01-llms-robotics-convergence'},
+          link: {type: 'doc', id: 'module-four/01-llms-robotics-convergence'},
           items: [
-            '04-module-four/01-llms-robotics-convergence',
-            '04-module-four/02-voice-to-action-whisper',
-            '04-module-four/03-cognitive-planning-llms-ros2',
-            '04-module-four/04-capstone-autonomous-humanoid',
+            'module-four/01-llms-robotics-convergence',
+            'module-four/02-voice-to-action-whisper',
+            'module-four/03-cognitive-planning-llms-ros2',
+            'module-four/04-capstone-autonomous-humanoid',
+            'module-four/05-module-four-glossary',
           ],
         },
       ],
