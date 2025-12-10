@@ -26,6 +26,8 @@ const config: Config = {
   projectName: 'Physical-AI-And-Humanoid-Robotics-Book', // Usually your repo name.
   deploymentBranch: 'gh-pages',
 
+  trailingSlash: false,
+
   onBrokenLinks: 'throw',
 
   // Even if you don't use internationalization, you can use this field to set
